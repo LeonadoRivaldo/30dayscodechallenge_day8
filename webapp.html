@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Instagram easy post!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="./main.css" /> -->
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <i class="fab fa-js-square"></i>
+                    Instagram easy post!
+                </a>
+                <div class="d-flex justify-content-end">
+                    <p style="margin:0px;" id="welcome"></p>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="container" style="margin-top:20px;">
+        <div class="row">
+            <div class="col-sm"></div>
+            <div class="col-sm hash-cards"></div>
+            <div class="col-sm"></div>
+        </div>
+    </section>
+
+</body>
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script type="text/javascript">
+
+    function copyHashs(elem) {
+     
+        var copyText = $(elem);
+        var elemento = document.createElement("textArea");
+        $(elemento).val( copyText.text() );
+        $("body").append(elemento);
+        elemento.select(); 
+        /* Copy the text inside the text field */
+        document.execCommand("Copy");
+
+        /* Alert the copied text */
+        alert("Copied the text: " + elemento.value);
+    }
+
+
+    $(document).ready(function(){
+
+        var hashs = [
+            { 
+                title:"Alimentação", 
+                tags:"#changes #bodybuilding #health #overcome #fitness #ficagrandeporra #monster #fitnesslifestyle #fitfoods #meal #inspiration #fit #dieta #comerbem #comidasaudavel #nutricao #nutrion #eatclean #foodclean #juandleogoingfit" 
+            }
+        ]
+
+
+        hashs.forEach(function(hash, key){
+            var hashCard = $("<div class="+hashCard+"></div>");
+            $( ".hash-cards" ).append(hashCard);
+            hashCard.load( "hash-card.html", function(html, textStatus, jqXHR){
+                var elem = $(hashCard)
+                elem.find(".copyhashs").click(function(e){
+                    e.preventDefault();
+                    copyHashs(elem.find(".hash-tags"));
+                });
+                elem.find(".hash-title").html( hash.title );
+                elem.find(".hash-tags").html( hash.tags );
+            });
+        });
+    });
+
+
+</script>
+
+
+</html>

@@ -60,6 +60,7 @@
             document.execCommand("Copy");
             _link.html("Done!");
         } catch (e) {
+            alert(e);
             console.log(err);
         }
         $(elemento).remove();

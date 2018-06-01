@@ -33,7 +33,15 @@
     </section>
 
 </body>
-
+<script src="https://cdn.onesignal.com/sdks/OneSignalSDK.js" async=""></script>
+<script>
+  var OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "891d29eb-b940-40f8-8fed-668040aa4d37",
+    });
+  });
+</script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
 <script type="text/javascript">
     function copyHashs(elem, link) {
